@@ -15,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.Select;
 
+import com.POMclass.Page_Object_Manager_Automation;
 import com.base_class.Base_Class;
 import com.pom1.Address;
 import com.pom1.Evening_Dress;
@@ -24,15 +25,10 @@ import com.pom1.Payment;
 import com.pom1.Shipping;
 import com.pom1.printeddress;
 
-public class Runner_Class11 extends Base_Class {
+public class Runner_Class_Automation extends Base_Class {
 	public static WebDriver driver = browserlaunch("chrome");
-	public static Evening_Dress ed = new Evening_Dress(driver);
-	public static printeddress pd = new printeddress(driver);
-	public static Order or = new Order(driver);
-	public static Login log = new Login(driver);
-	public static Shipping sh = new Shipping(driver);
-	public static Payment pay = new Payment(driver);
-	public static Address add = new Address(driver);
+
+	public static Page_Object_Manager_Automation pom = new Page_Object_Manager_Automation(driver);
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 
@@ -42,60 +38,60 @@ public class Runner_Class11 extends Base_Class {
 
 		wait(3);
 
-		clickonelement(ed.getPrinteddress());
+		clickonelement(pom.getEveningdress().getPrinteddress());
 
 		wait(5);
-		clickonelement(pd.getLarger());
+		clickonelement(pom.getPrinteddress().getLarger());
 		wait(8);
 
-		clickonelement(pd.getClose());
+		clickonelement(pom.getPrinteddress().getClose());
 		wait(8);
 
 		for (int i = 0; i < 2; i++) {
 
-			mouseaction(pd.getIcon(), "doubleclick");
+			mouseaction(pom.getPrinteddress().getIcon(), "doubleclick");
 
 		}
-		dropdown(pd.getSize(), "index", "1");
+		dropdown(pom.getPrinteddress().getSize(), "index", "1");
 
-		clickonelement(pd.getColour());
+		clickonelement(pom.getPrinteddress().getColour());
 
-		clickonelement(pd.getCart());
+		clickonelement(pom.getPrinteddress().getCart());
 
 		Thread.sleep(8000);
 		screenshot("automationpom1");
 
 		Thread.sleep(8000);
 
-		clickonelement(pd.getCheckout());
+		clickonelement(pom.getPrinteddress().getCheckout());
 		Thread.sleep(10000);
 
-		clickonelement(or.getCheckout());
+		clickonelement(pom.getOrder().getCheckout());
 		wait(10);
 
-		inputelement(log.getEmail(), "sandeep99@gmail.com");
+		inputelement(pom.getLogin().getEmail(), "sandeep99@gmail.com");
 
-		inputelement(log.getPassword(), "Autom@tiontesting99");
+		inputelement(pom.getLogin().getPassword(), "Autom@tiontesting99");
 
-		clickonelement(log.getSubmit());
-
-		wait(10);
-
-		clickonelement(add.getCheckout());
+		clickonelement(pom.getLogin().getSubmit());
 
 		wait(10);
 
-		clickonelement(sh.getRadiobutton());
+		clickonelement(pom.getAddress().getCheckout());
+
+		wait(10);
+
+		clickonelement(pom.getShipping().getRadiobutton());
 
 		wait(6);
 
-		clickonelement(sh.getCheckout());
+		clickonelement(pom.getShipping().getCheckout());
 		wait(6);
 
-		clickonelement(pay.getPay());
+		clickonelement(pom.getPayment().getPay());
 
 		wait(4);
-		clickonelement(pay.getConfirm());
+		clickonelement(pom.getPayment().getConfirm());
 
 		screenshot("automationmvn2");
 

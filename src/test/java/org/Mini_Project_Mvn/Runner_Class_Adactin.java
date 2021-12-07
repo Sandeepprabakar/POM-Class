@@ -26,7 +26,7 @@ import com.pom.Logout;
 import com.pom.Search_Hotel;
 import com.pom.Select_Hotel;
 
-public class Runner_Class3_Adactin extends Base_Class {
+public class Runner_Class_Adactin extends Base_Class {
 	public static WebDriver driver = browserlaunch("chrome");
 	public static Page_Object_Manager pom = new Page_Object_Manager(driver);
 
